@@ -34,7 +34,7 @@
 .hotelImg {
 	width: 100%;
 	object-fit: cover;
-    cursor: pointer;
+	cursor: pointer;
 }
 
 .hotelTitle {
@@ -117,7 +117,7 @@
 	left: 0;
 	width: 100vw;
 	height: 100vh;
-	background-color: rgba(0, 0, 0, 0.426);
+	background-color: rgba(0, 0, 0, 0.613);
 	z-index: 999;
 	display: flex;
 	align-items: center;
@@ -145,10 +145,9 @@
 	cursor: pointer;
 }
 
-.left {
-    
-}
-
-.right {
-
+.arrow {
+	margin: 20px;
+	font-size: 50px;
+	color: lightgray;
+	cursor: pointer;
 }

@@ -10,35 +10,48 @@ import Header from "../../components/header/Header";
 import Navbar from "../../components/navbar/Navbar";
 import MailList from "../../components/mailList/MailList";
 import Footer from "../../components/footer/Footer";
-
 import "./Hotel.css";
 import { faCircleXmark } from "@fortawesome/free-regular-svg-icons";
+
+
 const Hotel = () => {
 	const images = [
 		{
 			src: "https://preview.redd.it/dr5cbbya3md01.jpg?auto=webp&s=cbd5d6f66f57ddb1f57ab44284960f6efbb35866",
 		},
 		{
-			src: "https://preview.redd.it/dr5cbbya3md01.jpg?auto=webp&s=cbd5d6f66f57ddb1f57ab44284960f6efbb35866",
+			src: "https://s1.1zoom.me/b5050/744/330559-moril_1920x1080.jpg",
 		},
 		{
-			src: "https://preview.redd.it/dr5cbbya3md01.jpg?auto=webp&s=cbd5d6f66f57ddb1f57ab44284960f6efbb35866",
+			src: "https://s1.1zoom.me/big0/506/331038-svetik.jpg",
 		},
 		{
-			src: "https://preview.redd.it/dr5cbbya3md01.jpg?auto=webp&s=cbd5d6f66f57ddb1f57ab44284960f6efbb35866",
+			src: "https://www.1zoom.me/big2/937/330275-moril.jpg",
 		},
 		{
-			src: "https://preview.redd.it/dr5cbbya3md01.jpg?auto=webp&s=cbd5d6f66f57ddb1f57ab44284960f6efbb35866",
+			src: "https://s1.1zoom.me/big0/314/327887-svetik.jpg",
 		},
 		{
-			src: "https://preview.redd.it/dr5cbbya3md01.jpg?auto=webp&s=cbd5d6f66f57ddb1f57ab44284960f6efbb35866",
+			src: "https://s1.1zoom.me/big0/569/329954-moril.jpg",
 		},
 	];
 	const [slideIndex, setSlideIndex] = useState(0);
 	const [open, setOpen] = useState(false);
+
 	const handleSlide = (index) => {
 		setSlideIndex(index);
 		setOpen(true);
+	};
+
+	const handleMove = (direction) => {
+		console.log(direction, slideIndex);
+		let newSlideIndex;
+		if (direction === "l") {
+			newSlideIndex = slideIndex === 0 ? 5 : slideIndex - 1;
+		} else {
+			newSlideIndex = slideIndex === 5 ? 0 : slideIndex + 1;
+		}
+		setSlideIndex(newSlideIndex);
 	};
 	return (
 		<div>
@@ -54,16 +67,16 @@ const Hotel = () => {
 						/>
 						<FontAwesomeIcon
 							icon={faCircleArrowLeft}
-							className="left"
-							onClick={() => setSlideIndex((prevSlide) => prevSlide - 1)}
+							className="arrow"
+							onClick={() => handleMove("l")}
 						/>
 						<div className="sliderWrapper">
 							<img src={images[slideIndex].src} alt="" className="sliderImg" />
 						</div>
 						<FontAwesomeIcon
 							icon={faCircleArrowRight}
-							className="right"
-							onClick={() => setSlideIndex((prevSlide) => prevSlide + 1)}
+							className="arrow"
+							onClick={() => handleMove("r")}
 						/>
 					</div>
 				)}
