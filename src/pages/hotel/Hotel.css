@@ -113,14 +113,14 @@
 
 .slider {
 	position: sticky;
-	top: 0;
-	left: 0;
+	top: 10px;
+	
 	width: 100vw;
 	height: 100vh;
-	background-color: rgba(0, 0, 0, 0.613);
 	z-index: 999;
 	display: flex;
 	align-items: center;
+	background-color: rgba(0, 0, 0, 0.034);
 }
 
 .sliderWrapper {
@@ -139,15 +139,15 @@
 .close {
 	position: absolute;
 	top: 20px;
-	right: 20px;
+	right: 30px;
 	font-size: 30px;
-	color: lightgray;
+	color: black;
 	cursor: pointer;
 }
 
 .arrow {
 	margin: 20px;
 	font-size: 50px;
-	color: lightgray;
+	color: black;
 	cursor: pointer;
-}
+} 
