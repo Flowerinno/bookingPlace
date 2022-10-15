@@ -8,8 +8,6 @@ const PropertyList = () => {
 		"http://localhost:8000/api/hotels/countByType"
 	);
 
-	console.log(data);
-
 	const images = [
 		"https://media.istockphoto.com/photos/hotel-room-condominium-or-apartment-doorway-picture-id1165738696?k=20&m=1165738696&s=612x612&w=0&h=glThQeKk3IgE5RXN2IpeaQxQCnb4gBTMTu2lL1vmq3Y=",
 		"https://media.istockphoto.com/id/1382394262/uk/%D1%84%D0%BE%D1%82%D0%BE/%D1%84%D0%B0%D1%81%D0%B0%D0%B4-%D0%BD%D1%8C%D1%8E-%D0%B9%D0%BE%D1%80%D0%BA%D0%B0.jpg?s=612x612&w=0&k=20&c=yKz7HmfUWySEfMiIbQvDtmimpIEiLYra6Uo5i2Yp7yM=",
@@ -23,7 +21,8 @@ const PropertyList = () => {
 				"Loading please wait"
 			) : (
 				<>
-					{!loading && data.length !== 0 &&
+					{!loading &&
+						data.length !== 0 &&
 						images.map((image, index) => (
 							<div className="pListItem" key={index}>
 								<img src={image} alt="" className="pListImage" />
