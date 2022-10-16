@@ -22,7 +22,7 @@ const List = () => {
 	const [openDate, setOpenDate] = useState(false);
 	const [min, setMin] = useState(undefined);
 	const [max, setMax] = useState(undefined);
-	console.log(min, max);
+	
 	const { data, loading, error, reFetch } = useFetch(
 		`http://localhost:8000/api/hotels?city=${destination}&min=${min || 0}&max=${
 			max || 999

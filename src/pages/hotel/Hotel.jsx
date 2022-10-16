@@ -18,6 +18,7 @@ import { useContext } from "react";
 import { SearchContext } from "../../context/SearchContext";
 import { AuthContext } from "../../context/AuthContext";
 import Reserve from "../../components/reserve/Reserve";
+
 const Hotel = () => {
 	const location = useLocation();
 	const id = location.pathname.split("/")[2];
@@ -55,7 +56,7 @@ const Hotel = () => {
 	const { user } = useContext(AuthContext);
 	const navigate = useNavigate();
 	const handleClick = () => {
-		if (user) {
+		if (!user) {
 			navigate("/login");
 		} else {
 			setOpenModal(true);
@@ -144,7 +145,7 @@ const Hotel = () => {
 					<Footer />
 				</div>
 			)}
-			{open && <Reserve setOpen={setOpenModal} hotelId={id}/>}
+			{openModal && <Reserve setOpen={setOpenModal} hotelId={id} />}
 		</div>
 	);
 };

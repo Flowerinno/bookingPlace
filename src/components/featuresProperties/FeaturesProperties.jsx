@@ -7,7 +7,6 @@ const FeaturesProperties = () => {
 		"http://localhost:8000/api/hotels?features=true&limit=3"
 	);
 
-	console.log(data);
 	return (
 		<div className="fp">
 			{loading ? (
