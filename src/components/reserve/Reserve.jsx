@@ -9,19 +9,19 @@ import { useNavigate } from "react-router-dom";
 
 const Reserve = ({ setOpen, hotelId }) => {
 	const [selectedRooms, setSelectedRooms] = useState([]);
-	
+
 	//fetch available rooms for a chosen hotel
 	const { data, loading, error } = useFetch(
-		`http://localhost:8000/api/hotels/room/${hotelId}`
+		`https://booking-place.onrender.com/api/hotels/room/${hotelId}`
 	);
 	const navigate = useNavigate();
 	//get dates from context
 	const { dates } = useContext(SearchContext);
-		
+
 	const getDatesInRange = (startDate, endDate) => {
 		const start = new Date(startDate);
 		const end = new Date(endDate);
-		
+
 		const date = new Date(start.getTime());
 
 		let list = [];
@@ -58,14 +58,14 @@ const Reserve = ({ setOpen, hotelId }) => {
 				: selectedRooms.filter((item) => item !== value)
 		);
 	};
-	//submition function to reserve rooms 
+	//submition function to reserve rooms
 	const handleClick = async () => {
 		try {
-			//Promise.all to update all selected rooms 
+			//Promise.all to update all selected rooms
 			await Promise.all(
 				selectedRooms.map((roomId) => {
 					const response = axios.put(
-						`http://localhost:8000/api/rooms/availability/${roomId}`,
+						`https://booking-place.onrender.com/api/rooms/availability/${roomId}`,
 						{
 							dates: allDates,
 						}

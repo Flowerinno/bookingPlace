@@ -4,7 +4,7 @@ import "./Features.css";
 
 const Features = () => {
 	const { data, loading, error } = useFetch(
-		"http://localhost:8000/api/hotels/countByCity?cities=stambul,berlin,london"
+		"https://booking-place.onrender.com/api/hotels/countByCity?cities=stambul,berlin,london"
 	);
 
 	return (
